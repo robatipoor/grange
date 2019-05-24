@@ -38,7 +38,7 @@ fn step_range_test() {
     );
     assert_eq!(
         range!(-1,,-2,,=-10).collect::<Vec<i32>>(),
-        vec![-1,-3,-5,-7,-9]
+        vec![-1, -3, -5, -7, -9]
     );
 }
 
@@ -53,7 +53,7 @@ fn inclusive_from_zero_range_test() {
     assert_eq!(range!(,,3,,=10).collect::<Vec<i32>>(), vec![0, 3, 6, 9]);
     assert_eq!(
         range!(,,-2,,=-10).collect::<Vec<i32>>(),
-        vec![0,-2,-4,-6,-8,-10]
+        vec![0, -2, -4, -6, -8, -10]
     );
 }
 
@@ -64,5 +64,26 @@ fn inclusive_range_test() {
     assert_eq!(
         range!(1,,1,,=6).collect::<Vec<i32>>(),
         vec![1, 2, 3, 4, 5, 6]
+    );
+}
+
+#[test]
+fn range_str_test() {
+    assert_eq!(
+        range!("1..1..=6").collect::<Vec<i32>>(),
+        vec![1, 2, 3, 4, 5, 6]
+    );
+    assert_eq!(range!("1..6..=20").collect::<Vec<i32>>(), vec![1, 7, 13, 19]);
+    assert_eq!(range!("0..10..=10").collect::<Vec<i32>>(), vec![0, 10]);
+    assert_eq!(range!(",,4,,=10").collect::<Vec<i32>>(), vec![0, 4, 8],);
+    assert_eq!(range!(",,-4,,=-10").collect::<Vec<i32>>(), vec![0, -4, -8],);
+    assert_eq!(
+        range!(",,2,,=10").collect::<Vec<i32>>(),
+        vec![0, 2, 4, 6, 8, 10]
+    );
+    assert_eq!(range!("..3..=10").collect::<Vec<i32>>(), vec![0, 3, 6, 9]);
+    assert_eq!(
+        range!(",,-2,,=-10").collect::<Vec<i32>>(),
+        vec![0, -2, -4, -6, -8, -10]
     );
 }
