@@ -13,7 +13,7 @@ cargo add grange
 ```
 or 
 ```toml
-grange = "0.1.0"
+grange = "0.1.*"
 ```
 
 **example**
@@ -22,16 +22,16 @@ grange = "0.1.0"
 use grange::*;
 
 fn main() {
-    for i in range!(1,,2,,=20){ // equal to (1..=20).step_by(2)
+    for i in range!(1,2,=20){ // equal to (1..=20).step_by(2)
         println!("{}", i);
     }
-    for i in range!(10,,-1,,=1){ // equal to (1..=10).rev() 
+    for i in range!(10,-1,=1){ // equal to (1..=10).rev() 
         println!("{}", i);
     }
-    for i in range!(10,,-2,,=1){  
+    for i in range!(10,-2,=1){  // equal to (1..=10).step_by(2)
         println!("{}", i);
     }
-    for i in range!(,,3,,10){ // equal to (0..10).step_by(3)
+    for i in range!(,3,10){ // equal to (0..10).step_by(3)
         println!("{}", i);
     }
     for i in range!("10..1"){  

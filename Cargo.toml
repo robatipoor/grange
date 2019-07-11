@@ -1,6 +1,6 @@
 [package]
 name = "grange"
-version = "0.1.1"
+version = "0.2.0"
 description = "create range numbers macro"
 homepage = "https://github.com/robatipoor/grange"
 repository = "https://github.com/robatipoor/grange"
